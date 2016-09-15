@@ -39,10 +39,27 @@ typedef void (^WVJBHandler)(id data, WVJBResponseCallback responseCallback);
 + (instancetype)bridgeForWebView:(WVJB_WEBVIEW_TYPE*)webView handler:(WVJBHandler)handler;
 + (instancetype)bridgeForWebView:(WVJB_WEBVIEW_TYPE*)webView webViewDelegate:(WVJB_WEBVIEW_DELEGATE_TYPE*)webViewDelegate handler:(WVJBHandler)handler;
 + (void)enableLogging;
-
+/**
+ *  oc调用js
+ *
+ *  @param message 发送的消息
+ */
 - (void)send:(id)message;
 - (void)send:(id)message responseCallback:(WVJBResponseCallback)responseCallback;
+/**
+ *  js调用oc
+ *  在oc中向js中注册事件 等待在HTML中触发 回调事件
+ *
+ *  @param handlerName 注册事件名
+ *  @param handler     HTML中的事件的回调
+ */
 - (void)registerHandler:(NSString*)handlerName handler:(WVJBHandler)handler;
+
+/**
+ *  oc调用js
+ *  在js中向oc注册事件 等待在oc中触发
+ *  @param handlerName 注册事件名
+ */
 - (void)callHandler:(NSString*)handlerName;
 - (void)callHandler:(NSString*)handlerName data:(id)data;
 - (void)callHandler:(NSString*)handlerName data:(id)data responseCallback:(WVJBResponseCallback)responseCallback;

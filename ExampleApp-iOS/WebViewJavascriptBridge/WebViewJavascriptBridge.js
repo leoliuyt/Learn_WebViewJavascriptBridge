@@ -10,7 +10,7 @@
 	var QUEUE_HAS_MESSAGE = '__WVJB_QUEUE_MESSAGE__'
 	
 	var responseCallbacks = {}
-	var uniqueId = 1
+	var uniqueId = 1;
 	
   //创建iframe 隐藏 用于发送自定义格式的协议CUSTOM_PROTOCOL_SCHEME + '://' + QUEUE_HAS_MESSAGE
   //这是能实现交互的核心 触发UIWebView的shouldStartLoadWithRequest回调协议
